@@ -9,6 +9,12 @@ resource_registry:
   OS::TripleO::Services::CephMon: OS::Heat::None
   OS::TripleO::Services::CephClient: OS::Heat::None
   OS::TripleO::Services::CephOSD: OS::Heat::None
+  # Rados Gateway with External Ceph
+  #OS::TripleO::Services::CephRgw: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-rgw.yaml
+  #OS::TripleO::Services::SwiftProxy: OS::Heat::None
+  #OS::TripleO::Services::SwiftStorage: OS::Heat::None
+  #OS::TripleO::Services::SwiftRingBuilder: OS::Heat::None
+
 
 parameter_defaults:
   # NOTE: These example parameters are required when using CephExternal
@@ -40,3 +46,10 @@ parameter_defaults:
 
   # Backward compatibility setting, will be removed in the future
   CephAdminKey: ''
+
+  # Rados Gateway on external Ceph
+  # on external ceph 
+  #ceph auth get-or-create client.radosgw.gateway osd 'allow rwx' mon 'allow rw'
+  # External Ceph RGW Key
+  #CephRgwKey: '' 
+  
